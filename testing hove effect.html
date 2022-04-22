@@ -1,0 +1,51 @@
+<style>
+  /*hide the green highlight scaleX to zero(nothing)*/
+  h1::before {  
+    transform: scaleX(0);
+    transform-origin: bottom left;
+  }
+  /*show the green highlight scaleX to one(all text)*/
+  h1:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  /*show the green highlight scaleX to one(all text)*/
+  h1::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    inset: 0 0 0 0;
+    background: hsl(182, 87%, 39%);
+    z-index: -1; /*behind (negative)*/
+    transition: transform .5s ease; /*trasition time*/
+
+  }
+
+  h1 {
+    position: relative;
+    font-size: 10rem;
+  }
+
+  html {
+    block-size: 100%;
+    inline-size: 100%;
+  }
+
+  body {
+    min-block-size: 100%;
+    min-inline-size: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    display: grid;
+    place-content: center;
+    font-family: system-ui, sans-serif;
+  }
+
+  @media (orientation: landscape) {
+    body {
+      grid-auto-flow: column;
+    }
+  }
+</style>
+<h1>testing it</h1>
